@@ -8,6 +8,7 @@ REQUIREMENTS
 
 - The Apache Software Foundation: ```httpclient-4.2.5.jar```
 - The Apache Software Foundation: ```httpcore-4.2.4.jar```
+- The Apache Software Foundation: ```commons-logging-1.1.1.jar```
 - com.googlecode.json-simple: ```simple-json-1.1.1.jar```
 
 These jars are available in the ```lib``` directory. If you wish
@@ -23,14 +24,16 @@ Installation and Use
 **blitline-client.jar** is already in ```bin``` directory.
 
 
-To Build By Hand
+To Build By Hand 
 -----------------------
+(This isn't necessary because the blitline-client.js already exists in the bin directory)
+
 ```
 cd blitline-java-client
 ```
 
-For Linux/Mac ```javac -d bin -cp lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar com/blitline/client/*.java```
-...OR For PC ```javac -d bin -cp lib/httpclient-4.2.5.jar;lib/httpcore-4.2.4.jar;lib/json-simple-1.1.1.jar com/blitline/client/*.java```
+For Linux/Mac ```javac -d bin -cp lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar com/blitline/client/*.java```
+...OR For PC ```javac -d bin -cp lib/commons-logging-1.1.1.jar;lib/httpclient-4.2.5.jar;lib/httpcore-4.2.4.jar;lib/json-simple-1.1.1.jar com/blitline/client/*.java```
 
 ```
 jar cvf bin/blitline-client.jar bin/com/blitline/client/*.class
@@ -67,6 +70,17 @@ Please check out Blitline.com for further documentation about the Blitline servi
 Example
 -----------------------
 
+There is a Sample class to demonstrate how to use the blitline-client. You can try it by simply running the following
+command:
+
+For Linux/Mac ```java -cp .:lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar:bin/blitline-client.jar Sample```
+Or for PC ```java -cp .:lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar:bin/blitline-client.jar Sample```
+
+If you run those you will see you get an output that says you need an application ID, you need to add your
+Blitline Application ID as an argument, so you need to run something like this:
+
+For Linux/Mac ```java -cp .:lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar:bin/blitline-client.jar Sample <YOUR ADD ID>```
+Or for PC ```java -cp .:lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar:bin/blitline-client.jar Sample Sample <YOUR APP ID>```
 
 Licensing?
 -----------------------
