@@ -86,17 +86,12 @@ command:
 
 For Linux/Mac
 
-> java -cp .:lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar:bin/blitline-client.jar Sample
+> java -cp .:lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar:bin/blitline-client.jar Sample YOUR_APP_ID
 
 Or for PC
-> java -cp .:lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar:bin/blitline-client.jar Sample
+> java -cp .:lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar:bin/blitline-client.jar Sample YOUR_APP_ID
 
-If you run those you will see you get an output that says you need an application ID, you need to add your
-Blitline Application ID as an argument, so you need to run something like this:
-
-For Linux/Mac ```java -cp .:lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar:bin/blitline-client.jar Sample <YOUR ADD ID>```
-
-Or for PC ```java -cp .:lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar:bin/blitline-client.jar Sample Sample <YOUR APP ID>```
+**You will need to replace YOUR_APP_ID with your Application ID from Blitline.com**
 
 Licensing?
 -----------------------
