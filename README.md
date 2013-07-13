@@ -1,3 +1,5 @@
+(ALPHA) NOT READY FOR PUBLIC RELEASE
+
 blitline-java-client
 ====================
 
@@ -18,6 +20,8 @@ Blitline library.
 
 Installation and Use
 ====================
+git clone git@github.com:blitline-dev/blitline-java-client.git
+
 
 
 
