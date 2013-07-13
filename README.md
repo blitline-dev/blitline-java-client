@@ -9,7 +9,9 @@ Reference Java Implementation for Blitline.com Image Processing SaaS
 REQUIREMENTS
 ============
 *The Apache Software Foundation: httpclient-4.2.5.jar*
+
 *The Apache Software Foundation: httpcore-4.2.4.jar*
+
 *com.googlecode.json-simple: simple-json-1.1.1.jar*
 
 These jars are available in the lib directory. If you wish
@@ -27,7 +29,9 @@ blitline-client.jar is in bin/ directory.
 
 To Build By Hand
 =======================
+```
 cd blitline-java-client
+```
 
 For Linux/Mac
 ```Shell
@@ -39,7 +43,9 @@ For PC
 javac -d bin -cp lib/httpclient-4.2.5.jar;lib/httpcore-4.2.4.jar;lib/json-simple-1.1.1.jar com/blitline/client/*.java
 ```
 
+```
 jar cvf bin/blitline-client.jar bin/com/blitline/client/*.class
+```
 
 Example
 ========================
