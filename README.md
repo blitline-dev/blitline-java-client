@@ -3,6 +3,14 @@ Reference Java Implementation for Blitline.com Image Processing SaaS
 
 REQUIREMENTS
 -----------------------
+Built with the following:
+
+```
+java version "1.7.0_11"
+Java(TM) SE Runtime Environment (build 1.7.0_11-b21)
+Java HotSpot(TM) 64-Bit Server VM (build 23.6-b04, mixed mode)
+```
+
 
 - The Apache Software Foundation: ```httpclient-4.2.5.jar```
 - The Apache Software Foundation: ```httpcore-4.2.4.jar```
