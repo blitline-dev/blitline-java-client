@@ -102,6 +102,23 @@ public class BlitlineClient{
    
         String result;
         int serverCode = -1;
+  
+        
+        // Massage data a little:
+        // Add json base node automatically if none exists.
+        try {
+            if (!json.contains("json")) {
+                JSONObject jsonWithoutRoot = (JSONObject)parser.parse(json);
+                if (jsonWithoutRoot.get("json") == null) {
+                    // Wrap in json root
+                    json = "{ \"json\": " + json + "}";
+                }
+            }
+        }catch(ParseException px) {
+            String output = "JSON being submitted is malformed." + px.getMessage();
+            throw new BlitlineSubmissionException(output);
+        }
+        
         
         // Make sure JSON is parseable
         try {
@@ -129,7 +146,7 @@ public class BlitlineClient{
             jsonObjectResult = (JSONObject)parser.parse(result.toString());
         } 
         catch(ParseException pex) {
-            String output = "JSON being submitted is malformed." + pex.getMessage();
+            String output = "JSON being returned is malformed." + pex.getMessage();
             throw new BlitlineSubmissionException(output);
         }
         
