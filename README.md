@@ -1,5 +1,3 @@
-(ALPHA) NOT READY FOR PUBLIC RELEASE
-
 Reference Java Implementation for Blitline.com Image Processing SaaS
 
 
