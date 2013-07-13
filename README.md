@@ -84,13 +84,18 @@ Example
 There is a Sample class to demonstrate how to use the blitline-client. You can try it by simply running the following
 command:
 
-For Linux/Mac ```java -cp .:lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar:bin/blitline-client.jar Sample```
-Or for PC ```java -cp .:lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar:bin/blitline-client.jar Sample```
+For Linux/Mac
+
+> java -cp .:lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar:bin/blitline-client.jar Sample
+
+Or for PC
+> java -cp .:lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar:bin/blitline-client.jar Sample
 
 If you run those you will see you get an output that says you need an application ID, you need to add your
 Blitline Application ID as an argument, so you need to run something like this:
 
 For Linux/Mac ```java -cp .:lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar:bin/blitline-client.jar Sample <YOUR ADD ID>```
+
 Or for PC ```java -cp .:lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar:bin/blitline-client.jar Sample Sample <YOUR APP ID>```
 
 Licensing?
