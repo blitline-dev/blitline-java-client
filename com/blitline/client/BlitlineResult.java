@@ -15,48 +15,14 @@ import java.util.HashMap;
  * @author Blitline Developer
  */
 public class BlitlineResult {
-    private Integer responseCode = 0;
-    private String error = "No Error";
     private ArrayList<HashMap<String,String>> images;
     private String jobId = "";
     
-    public BlitlineResult(String jobId, Integer responseCode, String error, ArrayList<HashMap<String,String>> images) {
-        this.responseCode = responseCode;
-        this.error = error;
+    public BlitlineResult(String jobId, ArrayList<HashMap<String,String>> images) {
         this.images = images;
         this.jobId = jobId;
     }
-    /**
-     * Indicates whether there was an error during submission to Blitline
-     * This should always be checked before using the results, you can get
-     * the error message via the getError() method.
-     * 
-     * @return boolean
-     */
-    public boolean hasError() {
-        if (responseCode != 200) {
-            return true;
-        }
-        return false;
-    }
-    
-    /**
-     * Indicates the server response from Blitline.
-     * 
-     * @return 
-     */
-    public int getResponseCode() {
-        return this.responseCode;
-    }
 
-    /**
-     * User readable error message indicating the reason for job submission failure.
-     * 
-     * @return 
-     */
-    public String getError() {
-        return this.error;
-    }
     /**
      * Job ID associated with the successful submission to Blitline.com
      * 
@@ -80,8 +46,8 @@ public class BlitlineResult {
     @Override
     public String toString() {
         StringBuilder sb =  new StringBuilder();
-        sb.append("Response Code=");
-        sb.append(this.responseCode.toString());
+        sb.append("Job ID=");
+        sb.append(this.jobId);
         if (this.images != null) {
             sb.append(" Images=");
             sb.append(this.images.toString());

@@ -28,8 +28,6 @@ import java.util.Iterator;
  * @author blitline_developer
  */
 public class BlitlineClient{
-
-    static final JSONParser PARSER = new JSONParser();
     static final String BLITLINE_URL = "http://api.blitline.com/job";
     static final DefaultHttpClient CLIENT = new DefaultHttpClient();
     
@@ -44,7 +42,7 @@ public class BlitlineClient{
      * @return BlitlinePostback The data generated after Blitline has completed the job.
      */
     public static BlitlinePostback longPoll(BlitlineResult blitlineResult) {
-        if (blitlineResult.hasError() || blitlineResult.getJobId() == null || blitlineResult.getJobId().length() == 0) {
+        if (blitlineResult.getJobId() == null || blitlineResult.getJobId().length() == 0) {
             return null;
         }
         String result;
@@ -56,9 +54,7 @@ public class BlitlineClient{
             HttpResponse response = CLIENT.execute(httpget);
             HttpEntity entity = response.getEntity();
             result = EntityUtils.toString(entity, "UTF-8");
-            System.out.println( "LONGPOLLING=" + result.toString());
             int code = response.getStatusLine().getStatusCode();
-            System.out.println( "LONGPOLLING=" + Integer.toString(code));
         } catch (Exception ex) {
             result = "{\"results\":\"{\\\"images\\\":[{\\\"error\\\":\\\"Exception during longpoll-" + ex.getMessage() + ". Please make sure you are not using a postback URL in your JSON. If there is a postback URL you CANNOT longpoll. Also, if your blitline job submission failed, there will be no longpoll result.\\\"}],\\\"job_id\\\":\\\"" + blitlineResult.getJobId() + "\\\"}\"}";
         }
@@ -99,7 +95,8 @@ public class BlitlineClient{
      * @param json The JSON to submit to Blitline
      * @return The BlitlineResult representing the JSON result from Blitline.com
      */
-    public static BlitlineResult submitJsonToBlitline(String json) {
+    public static BlitlineResult submitJsonToBlitline(String json) throws BlitlineSubmissionException {
+        JSONParser parser = new JSONParser();
         HttpPost httppost = new HttpPost(BLITLINE_URL);
         httppost.addHeader("Content-Type", "application/json");
    
@@ -110,7 +107,7 @@ public class BlitlineClient{
         try {
             httppost.setEntity(new StringEntity(json));               
         }catch(Exception ex) {
-            return new BlitlineResult("FAILED", -1, "Unsupported encoding for JSON submitted", null);
+            throw new BlitlineSubmissionException("Unsupported encoding for JSON submitted");
         }
         
         // Execute call
@@ -119,19 +116,21 @@ public class BlitlineClient{
             serverCode = response.getStatusLine().getStatusCode();
             HttpEntity entity = response.getEntity();
             result = EntityUtils.toString(entity, "UTF-8");
+            if (serverCode != 200) {
+                throw new BlitlineSubmissionException("Blitline server throw exception. Reason=" + result);
+            }
         } catch (Exception ex) {
-            System.out.println("Exception");
-            result = "{ \"error\" : \"" + ex.getMessage() + "\"}";            
+            throw new BlitlineSubmissionException(ex.getMessage());
         }        
         JSONObject jsonObjectResult;
         
         // Parse response results
         try {
-            jsonObjectResult = (JSONObject)PARSER.parse(result.toString());
+            jsonObjectResult = (JSONObject)parser.parse(result.toString());
         } 
         catch(ParseException pex) {
-           System.out.println(pex.getMessage());
-           return new BlitlineResult("FAILED", -1, "Blitline POST FAILURE", null);
+            String output = "JSON being submitted is malformed." + pex.getMessage();
+            throw new BlitlineSubmissionException(output);
         }
         
         // Turn into BlitlineResult
@@ -146,7 +145,7 @@ public class BlitlineClient{
         return false;
     }
     
-    private static BlitlineResult parseResults(JSONObject jsonObjectResult, int serverCode) {
+    private static BlitlineResult parseResults(JSONObject jsonObjectResult, int serverCode)  throws BlitlineSubmissionException {
         ArrayList imageUrls = new ArrayList();
         String errorMessage = "No Error";
         String jobID = "";
@@ -156,13 +155,15 @@ public class BlitlineClient{
             results = (JSONObject)jsonObjectResult.get("results");
             if (results.containsKey("error")) {
                 errorMessage = results.get("error").toString();
-                serverCode = 500;
+                throw new BlitlineSubmissionException("Error(500)" + errorMessage);
             }
+            
             if (results.containsKey("job_id")) {
                 jobID = results.get("job_id").toString();                
             }
         }else if (jsonObjectResult.containsKey("error")){
             errorMessage = results.get("error").toString();
+            throw new BlitlineSubmissionException("Error:" + errorMessage);
         }
                
         ArrayList<HashMap<String, String>> imageArrayList = new ArrayList<HashMap<String, String>>();
@@ -177,6 +178,6 @@ public class BlitlineClient{
             imageUrls = (ArrayList)urlsList;
         }
                                 
-       return new BlitlineResult(jobID, serverCode, errorMessage, imageArrayList);
+       return new BlitlineResult(jobID, imageArrayList);
     }    
 }
