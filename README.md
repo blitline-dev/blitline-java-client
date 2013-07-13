@@ -54,6 +54,10 @@ It's best to do all your thinking about Blitline jobs in terms of JSON. Build th
 
 This call will return a BlitlineResult object. This BlitlineResult object has two methods, getJobID and getImages. The jobID is used to track your job through the Blitline system, and the getImages is the list of images you submitted to Blitline.
 
+You can find a bunch of JSON examples on the Blitline.com examples page:
+
+http://www.blitline.com/docs/examples
+
 **Polling for results from Blitline:**
 
 ```BlitlineClient.longPoll(blitlineResult)``` takes a BlitlineResult as a parameter and waits for Blitline to notify you that your job has completed. Once completed, longPoll returns a BlitlinePostback which represents the data that Blitline returns to you about your job. This includes metadata and information about the image.
