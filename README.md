@@ -17,14 +17,14 @@ Blitline library.
 
 
 Installation and Use
-====================
+-----------------------
 ```git clone git@github.com:blitline-dev/blitline-java-client.git```
 
 **blitline-client.jar** is already in ```bin``` directory.
 
 
 To Build By Hand
-=======================
+-----------------------
 ```
 cd blitline-java-client
 ```
@@ -38,7 +38,7 @@ jar cvf bin/blitline-client.jar bin/com/blitline/client/*.class
 
 
 Usage
-========================
+-----------------------
 
 There is only 2 calls in the Blitline client:
 
@@ -65,11 +65,11 @@ Please check out Blitline.com for further documentation about the Blitline servi
 
 
 Example
-========================
+-----------------------
 
 
 Licensing?
-===========================
+-----------------------
 
 The project is licensed under the http://en.wikipedia.org/wiki/WTFPL license.
 
