@@ -33,8 +33,9 @@ cd blitline-java-client
 For Linux/Mac ```javac -d bin -cp lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar com/blitline/client/*.java```
 ...OR For PC ```javac -d bin -cp lib/commons-logging-1.1.1.jar;lib/httpclient-4.2.5.jar;lib/httpcore-4.2.4.jar;lib/json-simple-1.1.1.jar com/blitline/client/*.java```
 
+Jar it up...
 ```
-jar cvf bin/blitline-client.jar bin/com/blitline/client/*.class
+cd bin;jar cvf blitline-client.jar com/blitline/client/*.class;cd ..
 ```
 
 
