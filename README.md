@@ -4,7 +4,7 @@ Reference Java Implementation for Blitline.com Image Processing SaaS
 
 
 REQUIREMENTS
-============
+-----------------------
 
 - The Apache Software Foundation: ```httpclient-4.2.5.jar```
 - The Apache Software Foundation: ```httpcore-4.2.4.jar```
