@@ -38,8 +38,11 @@ To Build By Hand
 cd blitline-java-client
 ```
 
-For Linux/Mac ```javac -d bin -cp lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar com/blitline/client/*.java```
-...OR For PC ```javac -d bin -cp lib/commons-logging-1.1.1.jar;lib/httpclient-4.2.5.jar;lib/httpcore-4.2.4.jar;lib/json-simple-1.1.1.jar com/blitline/client/*.java```
+For Linux/Mac
+> javac -d bin -cp lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar com/blitline/client/*.java
+
+...OR For PC
+> javac -d bin -cp lib/commons-logging-1.1.1.jar;lib/httpclient-4.2.5.jar;lib/httpcore-4.2.4.jar;lib/json-simple-1.1.1.jar com/blitline/client/*.java
 
 Jar it up...
 ```
@@ -91,7 +94,7 @@ For Linux/Mac
 Or for PC
 > java -cp .:lib/commons-logging-1.1.1.jar:lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar:bin/blitline-client.jar Sample YOUR_APP_ID
 
-**You will need to replace YOUR_APP_ID with your Application ID from Blitline.com**
+Note:**You will need to replace YOUR_APP_ID with your Application ID from Blitline.com**
 
 Licensing?
 -----------------------
