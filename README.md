@@ -8,7 +8,8 @@ Reference Java Implementation for Blitline.com Image Processing SaaS
 
 REQUIREMENTS
 ============
-— The Apache Software Foundation: httpclient-4.2.5.jar
+
+- The Apache Software Foundation: httpclient-4.2.5.jar
 - The Apache Software Foundation: httpcore-4.2.4.jar
 - com.googlecode.json-simple: simple-json-1.1.1.jar
 
@@ -31,15 +32,8 @@ To Build By Hand
 cd blitline-java-client
 ```
 
-For Linux/Mac
-```Shell
-javac -d bin -cp lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar com/blitline/client/*.java
-```
-
-For PC
-```Shell
-javac -d bin -cp lib/httpclient-4.2.5.jar;lib/httpcore-4.2.4.jar;lib/json-simple-1.1.1.jar com/blitline/client/*.java
-```
+For Linux/Mac ```javac -d bin -cp lib/httpclient-4.2.5.jar:lib/httpcore-4.2.4.jar:lib/json-simple-1.1.1.jar com/blitline/client/*.java```
+...OR For PC ```javac -d bin -cp lib/httpclient-4.2.5.jar;lib/httpcore-4.2.4.jar;lib/json-simple-1.1.1.jar com/blitline/client/*.java```
 
 ```
 jar cvf bin/blitline-client.jar bin/com/blitline/client/*.class
