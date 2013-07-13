@@ -8,9 +8,9 @@ Reference Java Implementation for Blitline.com Image Processing SaaS
 
 REQUIREMENTS
 ============
--The Apache Software Foundation: httpclient-4.2.5.jar
--The Apache Software Foundation: httpcore-4.2.4.jar
--com.googlecode.json-simple: simple-json-1.1.1.jar
+— The Apache Software Foundation: httpclient-4.2.5.jar
+- The Apache Software Foundation: httpcore-4.2.4.jar
+- com.googlecode.json-simple: simple-json-1.1.1.jar
 
 These jars are available in the ```lib``` directory. If you wish
 to integrate this client with other libraries, go ahead, we would love
@@ -20,9 +20,9 @@ Blitline library.
 
 Installation and Use
 ====================
-git clone git@github.com:blitline-dev/blitline-java-client.git
+```git clone git@github.com:blitline-dev/blitline-java-client.git```
 
-blitline-client.jar is in bin/ directory.
+blitline-client.jar is in ```bin``` directory.
 
 
 To Build By Hand
@@ -59,7 +59,7 @@ There is only 2 calls in the Blitline client:
 
 **Submitting JSON to Blitline:**
 
-BlitlineClient.submitJsonToBlitline(json) take JSON as a string parameter. 
+```BlitlineClient.submitJsonToBlitline(json)``` take JSON as a string parameter. 
 
 It's best to do all your thinking about Blitline jobs in terms of JSON. Build the jobs as JSON in text using tools like Blitline's GIST runner (http://www.blitline.com/docs/gist_runner?gist_id=3765044). Once you have the JSON for your jobs figured out as a big string, then you can just build it dynamically in your code and submit it via the BlitlineClient.submitJsonToBlitline call. The beauty of the JSON is that we can add to it at any time, expanding functionality without changing existing functionality. As such, it doesn't make sense to try to coerce it into a object or model, because we would need to update the Blitline libraries every time we made an addition.
 
@@ -67,7 +67,7 @@ This call will return a BlitlineResult object. This BlitlineResult object has tw
 
 **Polling for results from Blitline:**
 
-BlitlineClient.longPoll(blitlineResult) takes a BlitlineResult as a parameter and waits for Blitline to notify you that your job has completed. Once completed, longPoll returns a BlitlinePostback which represents the data that Blitline returns to you about your job. This includes metadata and information about the image.
+```BlitlineClient.longPoll(blitlineResult)``` takes a BlitlineResult as a parameter and waits for Blitline to notify you that your job has completed. Once completed, longPoll returns a BlitlinePostback which represents the data that Blitline returns to you about your job. This includes metadata and information about the image.
 
 Blitline recommends that you only use longPoll for development purposes. Blitline recommends that use the postback (http://www.blitline.com/docs/postback) functionality provided by Blitline to notify your servers when a job has completed. 
 
